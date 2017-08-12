@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Subterra-added pages</title>
+</head>
+<body>
+
+  <h1>Subterra-added pages</h1>
+
+  <nav>
+    <ul>
+      <% for (let i = 0; i < pages.length; i++) { %>
+        <li>
+          <a href="/page/<%= pages[i].id %>">
+              <%= pages[i].title %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+
+</body>
+</html>

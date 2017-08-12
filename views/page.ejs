@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Subterra-edited page</title>
+</head>
+<body>
+
+  <h1><%= page.title %></h1>
+
+  <main>
+    <article>
+      <% if (page.content.length > 0) { %>
+        <% for (let i = 0; i < page.content.length; i++) { %>
+          <%- page.content[i] %>
+        <% } %>
+      <% } %>
+    </article>
+
+    <% if (page.menus.length > 0) { %>
+      <% for (let i = 0; i < page.menus.length; i++) { %>
+        <section data-type="menu">
+          <nav data-nav="children">
+            <h3><%= page.menus[i] %></h3>
+            <ul>
+              <% for (let j = 0; j < page.menuChildren[i].length; j++) { %>
+                <li data-page-type="<%= page.menuChildren[i][j].type %>">
+                  <a href="/page/<%= page.menuChildren[i][j].id %>">
+                    <%= page.menuChildren[i][j].title %>
+                  </a>
+                </li>
+              <% } %>
+            </ul>
+          </nav>
+        </section>
+      <% } %>
+    <% } %>
+  </main>
+
+</body>
+</html>
